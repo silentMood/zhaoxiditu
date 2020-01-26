@@ -1,9 +1,9 @@
 # 朝夕地图代码仓库
 ## 前端
 ### 框架类库选择 (根据大家熟悉程度可变更)
-技术栈: react+mobx
-UI: ant-design-mobile
-地图: 高德
+* 技术栈: react+mobx
+* UI: ant-design-mobile
+* 地图: 高德
 
 ### 开发准备
 ```
@@ -19,7 +19,7 @@ npm start
 ```
 npm run build
 ```
-
+---
 ## 后端
 ### 框架类库选择
 技术栈: eggjs + mysql
