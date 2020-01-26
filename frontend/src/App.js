@@ -5,7 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { Provider } from 'mobx-react';
 import store from './store';
 
-const Example = React.lazy(() => import('./pages/Example'));
+const example = React.lazy(() => import('./pages/example'));
 
 class App extends Component {
   render() {
@@ -16,7 +16,7 @@ class App extends Component {
             <BasicLayout>
               <Router>
                 <Switch>
-                  <Route path="/" exact component={Example} />
+                  <Route path="/" exact component={example} />
                 </Switch>
               </Router>
             </BasicLayout>
