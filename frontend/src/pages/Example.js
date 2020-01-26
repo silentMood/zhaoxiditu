@@ -5,11 +5,11 @@ import { observer, inject } from 'mobx-react';
 @observer
 class Counter extends Component {
   render() {
-    const { store } = this.props;
+    const { example } = this.props.store;
     return (
       <div>
-        <p>You clicked {store.example.count} times</p>
-        <button onClick={store.example.inc}>click</button>
+        <p>You clicked {example.count} times</p>
+        <button onClick={example.inc}>click</button>
       </div>
     );
   }
