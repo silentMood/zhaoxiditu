@@ -5,7 +5,7 @@ import ErrorBoundary from './components/ErrorBoundary';
 import { Provider } from 'mobx-react';
 import store from './store';
 
-const example = React.lazy(() => import('./pages/example'));
+const example = React.lazy(() => import('./pages/Example'));
 
 class App extends Component {
   render() {

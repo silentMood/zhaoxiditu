@@ -22,7 +22,7 @@ module.exports = override(
     services: path.resolve(__dirname, 'src/services'),
     utils: path.resolve(__dirname, 'src/utils'),
   }),
-  addPostcssPlugins([require('postcss-normalize')(undefined)]),
+  addPostcssPlugins([require('postcss-normalize')(undefined), require('postcss-px2rem')({ remUnit: 37.5 })]),
   addBabelPlugin([
     'import',
     {
