@@ -22,7 +22,6 @@ jobs:
         cd server
         npm i
         npm ci
-        npm run cov
         npm run test
       env:
         CI: true
