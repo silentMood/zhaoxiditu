@@ -1,10 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <link rel="dns-prefetch" href="//webapi.amap.com"/>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"/>
+    <meta name="App-Config" content="fullscreen=yes,useHistoryState=yes,transition=yes"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-touch-fullscreen" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection"content="telephone=no,email=no"/>
+
     <link rel="icon" href="favicon.ico" />
+    <link rel="apple-touch-icon" href="favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="favicon.ico"/>
     <title>朝夕地图（武汉加油）</title>
     <script>
       if ("serviceWorker" in navigator) {
@@ -12,6 +21,17 @@
           navigator.serviceWorker.register("/service-worker.js");
         });
       }
+    </script>
+    <script>
+      var docEl = document.documentElement;
+      function calcLayout () {
+        var clientWidth = docEl.getBoundingClientRect().width;
+        docEl.style.fontSize = Math.floor(clientWidth / (750 / 2 / 16 )) + 'px';
+      }
+      window.addEventListener('DOMContentLoaded', calcLayout);
+      window.addEventListener('resize', calcLayout);
+      window.addEventListener('orientationchange', calcLayout);
+      calcLayout();
     </script>
     <script type="text/javascript" src="https://webapi.amap.com/maps?v=1.4.15&key=648d2025dd1a2ef843de33c7118b79d4"></script> 
   </head>
