@@ -8,7 +8,8 @@ class Counter extends Component {
     const { store } = this.props;
     return (
       <div>
-        <p>You clicked {store.count} times</p>
+        <p>You clicked {store.example.count} times</p>
+        <button onClick={store.example.inc}>click</button>
       </div>
     );
   }

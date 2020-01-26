@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BasicLayout from './layouts';
 import ErrorBoundary from './components/ErrorBoundary';
 import { Provider } from 'mobx-react';
-import store from './store/example';
+import store from './store';
 
 const Example = React.lazy(() => import('./pages/Example'));
 
