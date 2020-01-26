@@ -35,9 +35,18 @@
       "last 1 safari version"
     ]
   },
+  "husky": {
+    "hooks": {
+      "precommit": "npm run build && npm test",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "devDependencies": {
+    "@commitlint/config-conventional": "^8.3.4",
     "babel-plugin-import": "^1.13.0",
+    "commitlint": "^8.3.5",
     "customize-cra": "^0.8.0",
+    "husky": "^4.2.1",
     "node-sass": "^4.13.1",
     "postcss-normalize": "^8.0.1",
     "postcss-px2rem": "^0.3.0",
