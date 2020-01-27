@@ -1,5 +1,8 @@
-
 .wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
   text-align: center;
 }
 
@@ -11,4 +14,12 @@
   padding: .6em 0;
   color: white;
   margin-bottom: 20px;
+}
+
+.content {
+  flex: 1;
+}
+
+.navigator {
+  height: 64px;
 }

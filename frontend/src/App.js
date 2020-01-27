@@ -6,25 +6,27 @@ import { Provider } from 'mobx-react';
 import store from './store';
 
 const example = React.lazy(() => import('./pages/Example'));
+const map = React.lazy(() => import('./pages/Map'));
 
 class App extends Component {
-  render() {
-    return (
-      <ErrorBoundary>
-        <Suspense fallback={<div>Loading...</div>}>
-          <Provider store={store}>
-            <BasicLayout>
-              <Router>
-                <Switch>
-                  <Route path="/" exact component={example} />
-                </Switch>
-              </Router>
-            </BasicLayout>
-          </Provider>
-        </Suspense>
-      </ErrorBoundary>
-    );
-  }
+	render() {
+		return (
+			<ErrorBoundary>
+				<Suspense fallback={<div>Loading...</div>}>
+					<Provider store={store}>
+						<Router>
+							<BasicLayout>
+								<Switch>
+									<Route path="/" exact component={map} />
+									<Route path="/example" exact component={example} />
+								</Switch>
+							</BasicLayout>
+						</Router>
+					</Provider>
+				</Suspense>
+			</ErrorBoundary>
+		);
+	}
 }
 
 export default App;
