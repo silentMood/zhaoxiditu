@@ -6,7 +6,11 @@ class Navigator extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			selectedTab: 'map'
+			selectedTab: 'map',
+			tabs: [
+				{ title: '地图', key: 'map', path: '/', icon: 'icon-map' },
+				{ title: '示例', key: 'example', path: '/example', icon: 'icon-me' }
+			]
 		};
 	}
 
@@ -14,36 +18,23 @@ class Navigator extends React.Component {
 		const { history } = this.props;
 		return (
 			<TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" tabBarPosition="bottom">
-				<TabBar.Item
-					icon={<span class="iconfont icon-map" />}
-					selectedIcon={<span class="iconfont icon-map" />}
-					title="地图"
-					key="map"
-					selected={this.state.selectedTab === 'map'}
-					onPress={() => {
-						this.setState({
-							selectedTab: 'map'
-						});
-						history.push({
-							pathname: '/'
-						});
-					}}
-				/>
-				<TabBar.Item
-					icon={<span class="iconfont icon-me" />}
-					selectedIcon={<span class="iconfont icon-me" />}
-					title="示例"
-					key="example"
-					selected={this.state.selectedTab === 'example'}
-					onPress={() => {
-						this.setState({
-							selectedTab: 'example'
-						});
-						history.push({
-							pathname: '/example'
-						});
-					}}
-				/>
+				{this.state.tabs.map(({ title, key, icon, path }) => (
+					<TabBar.Item
+						icon={<span class={`iconfont ${icon}`} />}
+						selectedIcon={<span class={`iconfont ${icon}`} />}
+						title={title}
+						key={key}
+						selected={this.state.selectedTab === key}
+						onPress={() => {
+							this.setState({
+								selectedTab: key
+							});
+							history.replace({
+								pathname: path
+							});
+						}}
+					/>
+				))}
 			</TabBar>
 		);
 	}
