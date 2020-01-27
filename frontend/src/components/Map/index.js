@@ -1,5 +1,9 @@
 import React from 'react';
 import styles from './map.component.css';
+import {
+  Provider,
+  KeepAlive
+} from 'react-keep-alive';
 
 class Map extends React.Component {
   constructor(props) {
@@ -11,7 +15,7 @@ class Map extends React.Component {
   }
 
   render() {
-    return <div id="zhaoximapbox" className={styles.mapbox}></div>;
+    return <div id='zhaoximapbox'></div>;
   }
 }
 

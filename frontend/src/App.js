@@ -2,7 +2,8 @@ import React, { Component, Suspense } from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import BasicLayout from './layouts';
 import ErrorBoundary from './components/ErrorBoundary';
-import { Provider } from 'mobx-react';
+import { Provider as MobxProvider } from 'mobx-react';
+import { Provider as KeepAliveProvider } from 'react-keep-alive';
 import store from './store';
 
 const example = React.lazy(() => import('./pages/Example'));
@@ -13,16 +14,18 @@ class App extends Component {
 		return (
 			<ErrorBoundary>
 				<Suspense fallback={<div>Loading...</div>}>
-					<Provider store={store}>
+					<MobxProvider store={store}>
 						<Router>
-							<BasicLayout>
-								<Switch>
-									<Route path="/" exact component={map} />
-									<Route path="/example" exact component={example} />
-								</Switch>
-							</BasicLayout>
+              <KeepAliveProvider>
+                <BasicLayout>
+                  <Switch>
+                    <Route path="/" exact component={map} />
+                    <Route path="/example" exact component={example} />
+                  </Switch>
+                </BasicLayout>
+              </KeepAliveProvider>
 						</Router>
-					</Provider>
+					</MobxProvider>
 				</Suspense>
 			</ErrorBoundary>
 		);

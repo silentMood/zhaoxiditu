@@ -20,8 +20,8 @@ class Navigator extends React.Component {
 			<TabBar unselectedTintColor="#949494" tintColor="#33A3F4" barTintColor="white" tabBarPosition="bottom">
 				{this.state.tabs.map(({ title, key, icon, path }) => (
 					<TabBar.Item
-						icon={<span class={`iconfont ${icon}`} />}
-						selectedIcon={<span class={`iconfont ${icon}`} />}
+						icon={<span className={`iconfont ${icon}`} />}
+						selectedIcon={<span className={`iconfont ${icon}`} />}
 						title={title}
 						key={key}
 						selected={this.state.selectedTab === key}
