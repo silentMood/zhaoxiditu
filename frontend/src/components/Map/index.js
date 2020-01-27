@@ -1,18 +1,14 @@
 import React from 'react';
-import styles from './map.component.css';
 import { Toast } from 'antd-mobile';
 
 class Map extends React.Component {
-  constructor(props) {
-    super(props);
-  }
-
   componentDidMount() {
     this.initMap()
   }
 
   initMap () {
-    const map = this.__zhaoximap = new AMap.Map('zhaoximapbox', {
+    const map = this.__zhaoximap = new AMap.Map(this.refs.zhaoximapbox, {
+      // 武汉中心经纬度hard coding
       center: [114.31, 30.58],
       zoom: 9
     });
@@ -56,7 +52,7 @@ class Map extends React.Component {
   }
 
   render() {
-    return <div id='zhaoximapbox'></div>;
+    return <div ref='zhaoximapbox' style={{ width: '100%', height: '100%' }}></div>;
   }
 }
 

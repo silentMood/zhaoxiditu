@@ -6,10 +6,6 @@ import styles from './example.page.css';
 @inject('store')
 @observer
 class Counter extends Component {
-	componentDidMount() {
-		var map = new AMap.Map('mapbox');
-	}
-
 	render() {
 		const { example } = this.props.store;
 		return (
