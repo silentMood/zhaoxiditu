@@ -24,7 +24,7 @@ if (workbox) {
 
   workbox.routing.registerRoute(
     new RegExp('https://webapi\.amap\.com'),
-    workbox.strategies.cacheFirst({
+    workbox.strategies.staleWhileRevalidate({
       cacheName: 'zhaoxiditu:amapcdn',
       plugins: [
         new workbox.expiration.Plugin({
